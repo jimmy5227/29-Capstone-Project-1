@@ -1,44 +1,53 @@
-/* 1. #082032
-2. #2C394B
-3. #334756
-4. #FF4C29 */
+/*
 
 .home-hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    width: 100vw;
-    left: 0;
-    z-index: -1;
-    background-image: url("/static/images/signed-out-home.jpg");
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    text-shadow: 0 0 8px #b3c5d1;
-  }
-  
-  .home-hero .btn {
-    text-shadow: none;
-    position: relative;
-    z-index: 1;
-    width: 150px;
-  }
-  
-  .home-hero h1 {
-    margin-bottom: 4rem;
-  }
-  
-  .home-hero:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  left: 0;
+  z-index: -1;
+  background-image: url("/static/images/signed-out-home.jpg");
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  text-shadow: 0 0 8px #b3c5d1;
+}
+
+.home-hero .btn {
+  text-shadow: none;
+  position: relative;
+  z-index: 1;
+  width: 150px;
+}
+
+.home-hero h1 {
+  margin-bottom: 4rem;
+}
+
+.home-hero:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+} */
+
+body {
+  background-color: #f3d15c;
+  font-family: "Noto Sans";
+  font-size: 22px;
+}
+
+h1,
+h4 {
+  font-family: "Phenomena", sans-serif;
+  color: #2f2d72;
+}

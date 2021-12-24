@@ -5,7 +5,6 @@ db.drop_all()
 db.create_all()
 
 u1 = User(
-    username='user1',
     first_name='test',
     last_name='test',
     email='test@test.com',
@@ -13,7 +12,6 @@ u1 = User(
 )
 
 u2 = User(
-    username='user2',
     first_name='test2',
     last_name='test2',
     email='test2@test2.com',

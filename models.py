@@ -23,12 +23,6 @@ class User(db.Model):
         primary_key=True,
     )
 
-    username = db.Column(
-        db.Text,
-        nullable=False,
-        unique=True,
-    )
-
     first_name = db.Column(
         db.Text,
         nullable=False
@@ -58,7 +52,7 @@ class User(db.Model):
         return f"<User #{self.id}: {self.first_name} {self.last_name} AS: {self.username}, {self.email}>"
 
     @classmethod
-    def register(cls, username, first_name, last_name, email, password):
+    def register(cls, first_name, last_name, email, password):
         """Sign up user.
 
         Hashes password and adds user to system.
@@ -67,7 +61,6 @@ class User(db.Model):
         hashed_pwd = bcrypt.generate_password_hash(password).decode('UTF-8')
 
         user = User(
-            username=username,
             first_name=first_name,
             last_name=last_name,
             email=email,
@@ -78,7 +71,7 @@ class User(db.Model):
         return user
 
     @classmethod
-    def authenticate(cls, username, password):
+    def authenticate(cls, email, password):
         """Find user with `username` and `password`.
 
         This is a class method (call it on the class, not an individual user.)
@@ -88,7 +81,7 @@ class User(db.Model):
         If can't find matching user (or if password is wrong), returns False.
         """
 
-        user = cls.query.filter_by(username=username).first()
+        user = cls.query.filter_by(email=email).first()
 
         if user:
             is_auth = bcrypt.check_password_hash(user.password, password)
