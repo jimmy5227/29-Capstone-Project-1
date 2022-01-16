@@ -1,46 +1,6 @@
-/*
-
-.home-hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  left: 0;
-  z-index: -1;
-  background-image: url("/static/images/signed-out-home.jpg");
-  background-size: cover;
-  background-position: center center;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  text-shadow: 0 0 8px #b3c5d1;
-}
-
-.home-hero .btn {
-  text-shadow: none;
-  position: relative;
-  z-index: 1;
-  width: 150px;
-}
-
-.home-hero h1 {
-  margin-bottom: 4rem;
-}
-
-.home-hero:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-} */
-
 body {
+  padding: 0;
+  margin: 0;
   background-color: #f3d15c;
   font-family: "Noto Sans";
   font-size: 22px;
@@ -50,4 +10,31 @@ h1,
 h4 {
   font-family: "Phenomena", sans-serif;
   color: #2f2d72;
+}
+
+.navbar {
+  background-color: #2f2d72;
+  overflow: hidden;
+  height: 64px;
+}
+
+.navbar a {
+  float: left;
+  color: #ffce00;
+  text-align: center;
+  padding: 0 10px;
+  text-decoration: none;
+  font-size: 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar a:hover {
+  background-color: #f3d15c;
+  color: #2f2d72;
+}
+
+.navbar img {
+  height: 48px;
 }

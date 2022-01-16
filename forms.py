@@ -13,5 +13,5 @@ class UserAddForm(FlaskForm):
 class UserSignInForm(FlaskForm):
     """Form for signing in users"""
 
-    email = EmailField('Email', validators=[DataRequired(), Email()])
+    email = EmailField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
