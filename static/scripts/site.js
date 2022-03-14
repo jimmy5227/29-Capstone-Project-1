@@ -24,41 +24,53 @@
 //   }
 // );
 
-// console.log("hello world");
+const symbol = document.querySelector("#symbol").innerText;
 
-async function callback() {
-  const stock = document.getElementById("stock").value;
-  const period = document.getElementById("period").value;
-  const interval = document.getElementById("interval").value;
-  let response = await fetch(
-    "/callback/getStock?data=" +
-      stock +
-      "&period=" +
-      period +
-      "&interval=" +
-      interval
+const currentPrice = document.querySelector("#price");
+const titlePrice = document.querySelector("#title");
+const updatePrice = () => {
+  fetch(`/stock/${symbol}/currentPrice`).then((res) => {
+    res.text().then((text) => {
+      currentPrice.innerText = text;
+      titlePrice.innerText = symbol + " - " + text + " | WSB";
+    });
+  });
+};
+setInterval(updatePrice, 5000);
+
+const ticker = async () => {
+  let period = document.getElementById("period").value; // Change to accept user input
+  let interval = document.getElementById("interval").value; // Change to accept user input
+
+  const status = document.querySelector("#status");
+  status.innerText = `Period of ${period} in ${interval} interval.`;
+
+  let res = await fetch(
+    `/stock/${symbol}/getStock?data=${symbol}&period=${period}&interval=${interval}`
   );
-  if (response.ok) {
-    let chartJson = await response.json();
-    if (response.ok) {
-      response = await fetch("/callback/getInfo?data=" + stock);
-      let infoJson = await response.json();
+  if (res.ok) {
+    let chartJson = await res.json();
+    if (res.ok) {
+      res = await fetch(`/stock/${symbol}/getInfo?data=${symbol}`);
+      let infoJson = await res.json();
       info(infoJson);
       Plotly.newPlot("chart", chartJson, {});
     } else {
-      alert("HTTP-Error: " + response.status + "on getInfo");
+      alert("HTTP-Error: " + res.status + "on getInfo");
     }
   } else {
     alert("HTTP-Error: " + response.status + "on getStock");
   }
-}
-function info(json) {
-  let name = document.getElementById("companyName");
-  name.innerHTML = json.shortName;
-  name = document.getElementById("symbol");
-  name.innerHTML = json.symbol;
-  name = document.getElementById("dayHigh");
-  name.innerHTML = json.dayHigh;
+};
+
+const info = (json) => {
+  let name = document.getElementById("dayHigh");
+  name.innerHTML = Math.round(json.dayHigh * 100) / 100;
   name = document.getElementById("dayLow");
-  name.innerHTML = json.dayLow;
-}
+  name.innerHTML = Math.round(json.dayLow * 100) / 100;
+};
+
+const button = document.querySelector("#fetch");
+button.addEventListener("click", ticker);
+
+ticker();

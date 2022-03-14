@@ -89,3 +89,48 @@ class User(db.Model):
                 return user
 
         return False
+
+class Stock(db.Model):
+
+    __tablename__ = 'stocks'
+
+    symbol = db.Column(
+        db.String,
+        primary_key=True,
+        nullable=False
+    )
+
+    name = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    exchange = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    country_name = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    sector = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    industry = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    about = db.Column(
+        db.Text,
+        nullable=False
+    )
+
+    address = db.Column(
+        db.Text,
+        nullable=False,
+    )

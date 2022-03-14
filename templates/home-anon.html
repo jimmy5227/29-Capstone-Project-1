@@ -1,16 +1,7 @@
 {% extends 'base.html' %} {% block content %}
-<div class="home-hero">
-  <h1>Welcome</h1>
-  <h4>Create an Account to Get Started</h4>
-  <p>Sign up now to get your own personalized portfolio!</p>
-  <form method="POST">
-    {{ form.hidden_tag() }} {% for field in form if field.widget.input_type
-    !='hidden' %} {% for error in field.errors %}
-    <span class="text-danger">{{ error }}</span>
-    {% endfor %} {{ field(placeholder=field.label.text)}} {% endfor %}
 
-    <button>Sign In</button>
-  </form>
-  New to WSB? <a href="/register" class="btn btn-primary">Sign up</a>
+<div class="home">
+  <h1>Home Anonymous</h1>
 </div>
+
 {% endblock %}

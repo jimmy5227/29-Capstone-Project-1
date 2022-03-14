@@ -1,0 +1,66 @@
+<title id="title">{{ stock.symbol }} - ${{ price }} | WSB</title>
+
+{% extends 'base.html' %} {% block content %}
+
+<div class="root">
+  <!-- <h1>{{ stock.name }}</h1>
+  <h1 id="symbol">{{ stock.symbol }}</h1> -->
+  <h1>{{ stock }}</h1>
+  <h1 id="symbol">{{ stock }}</h1>
+  <h2 id="price">{{ price }}</h2>
+
+  <p><b>Stock info</b></p>
+  <p>Day High: <span id="dayHigh">N/A</span></p>
+  <p>Day Low: <span id="dayLow">N/A</span></p>
+
+  <div id="chart" class="chart"></div>
+
+  <div id="status" class="status"></div>
+
+  <div class="select">
+    <label for="period"><b>Period</b></label>
+    <select name="period" id="period">
+      <option selected value="1d">1 day</option>
+      <option value="5d">5 days</option>
+      <option value="1mo">1 month</option>
+      <option value="3mo">3 months</option>
+      <option value="6mo">6 months</option>
+      <option value="1y">1 year</option>
+      <option value="2y">2 years</option>
+      <option value="5y">5 years</option>
+      <option value="10y">10 years</option>
+      <option value="ytd">Year to date</option>
+      <option value="max">Max</option>
+    </select>
+
+    <label for="interval"><b>Interval</b></label>
+    <select name="interval" id="interval">
+      <option selected value="1m">1 minute</option>
+      <option value="2m">2 minutes</option>
+      <option value="5m">5 minutes</option>
+      <option value="15m">15 minutes</option>
+      <option value="30m">30 minutes</option>
+      <option value="60m">60 minutes</option>
+      <option value="90m">90 minutes</option>
+      <option value="1d">1 day</option>
+      <option value="5d">5 days</option>
+      <option value="1w">1 week</option>
+      <option value="1m">1 month</option>
+      <option value="3m">3 months</option>
+    </select>
+
+    <button type="button" id="fetch">Fetch stock</button>
+  </div>
+  <div class="disclaimer">
+    <i>Note: not all intervals are valid for all periods</i>
+  </div>
+</div>
+
+<!-- <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+  crossorigin="anonymous"
+></script> -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="../static/scripts/site.js"></script>
+{% endblock %}

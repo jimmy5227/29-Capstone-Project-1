@@ -1,15 +1,24 @@
 body {
-  padding: 0;
-  margin: 0;
+  margin: 0 auto;
   background-color: #f3d15c;
   font-family: "Noto Sans";
   font-size: 22px;
 }
 
+.home-anon,
+.home,
+.root {
+  padding: 28px;
+}
+
 h1,
+h2,
+h3,
 h4 {
-  font-family: "Phenomena", sans-serif;
+  /* font-family: "Phenomena", sans-serif; */
   color: #2f2d72;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .navbar {
@@ -38,3 +47,82 @@ h4 {
 .navbar img {
   height: 48px;
 }
+
+.navbar img.invert {
+  display: none;
+}
+
+.navbar a:hover img.invert {
+  display: block;
+}
+
+.navbar a:hover img.normal {
+  display: none;
+}
+
+.navbar-anon {
+  background-color: white;
+  overflow: hidden;
+  height: 64px;
+}
+
+.navbar-anon a {
+  float: left;
+  color: #2f2d72;
+  text-align: center;
+  padding: 0 10px;
+  text-decoration: none;
+  font-size: 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-anon a:hover {
+  background-color: #f3d15c;
+  color: #2f2d72;
+}
+
+.navbar-anon img {
+  height: 48px;
+}
+
+.navbar-anon img.invert {
+  display: none;
+}
+
+.navbar-anon a:hover img.invert {
+  display: block;
+}
+
+.navbar-anon a:hover img.normal {
+  display: none;
+}
+
+.flash {
+  background-color: #2f2d72;
+  color: white;
+}
+
+.chart {
+  height: 300px;
+  border: 1px solid;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.status {
+  font-size: smaller;
+  padding: 10px;
+  text-align: right;
+}
+
+.disclaimer {
+  padding: 10px;
+  text-align: right;
+  font-size: small;
+}
+
+/* .root {
+  background-color: #faf8f2;
+  border: 5px ridge #2f2d72;
+} */
