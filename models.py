@@ -48,6 +48,11 @@ class User(db.Model):
         nullable=False,
     )
 
+    cash = db.Column(
+        db.Float,
+        nullable=False,
+    )
+
     def __repr__(self):
         return f"<User #{self.id}: {self.first_name} {self.last_name} AS: {self.username}, {self.email}>"
 
@@ -65,6 +70,7 @@ class User(db.Model):
             last_name=last_name,
             email=email,
             password=hashed_pwd,
+            cash=0.00,
         )
 
         db.session.add(user)

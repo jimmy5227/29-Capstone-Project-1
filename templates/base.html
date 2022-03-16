@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <title>WSB</title>
 
-    <!-- JavaScript Bundle with Popper
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script> -->
-
     <link href="http://fonts.cdnfonts.com/css/phenomena" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Noto Sans"
@@ -25,22 +18,35 @@
     <link rel="stylesheet" href="/static/stylesheets/style.css" />
     <link rel="shortcut icon" href="/static/images/faviconInvert.png" />
 
-    <!-- <script src="https://code.highcharts.com/highcharts.src.js"></script> -->
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/stock/modules/data.js"></script>
     <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
-    <script src="https://unpkg.com/jquery"></script>
+    <!-- <script src="https://unpkg.com/jquery"></script> -->
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
     <nav class="navbar">
       <a href="/">
+        <!-- flaticon -->
         <img class="invert" src="/static/images/favicon.png" />
-        <img class="normal" src="/static/images/faviconInvert.png"
-      /></a>
+        <img class="normal" src="/static/images/faviconInvert.png" />
+      </a>
       {% if g.user %}
-      <a><input type="text"></input></a>
+      <a>
+        <select name="redirect" id="redirect">
+          <option value="AAPL">AAPL</option>
+          <option value="MSFT">MSFT</option>
+          <option value="NKE">NKE</option>
+          <option value="TEAM">TEAM</option>
+          <option value="UBER">UBER</option>
+        </select>
+        <button id="nav-redirect">
+          <img id="search" class="normal" src="/static/images/search.png" />
+          <!-- <img class="normal" src="/static/images/searchInvert.png" /> -->
+        </button>
+      </a>
+      <a href="/cash">Cash</a>
       <a href="/logout">Log Out</a>
       {% elif not g.user %}
       <a href="/login">Log In</a>
@@ -50,5 +56,6 @@
     </nav>
 
     <main id="content">{% block content %} {% endblock %}</main>
+    <script src="../static/scripts/site.js"></script>
   </body>
 </html>

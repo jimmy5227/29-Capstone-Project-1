@@ -9,6 +9,7 @@ User.register(
     last_name='test',
     email='test@test.com',
     password='test',
+    cash=0,
 )
 
 User.register(
@@ -16,6 +17,7 @@ User.register(
     last_name='test2',
     email='test2@test2.com',
     password='test2',
+    cash=0,
 )
 
 db.session.commit()

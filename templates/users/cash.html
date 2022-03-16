@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<div class="root">
+  <h1>Your Cash</h1>
+  <h2>${{cash}}</h2>
+
+  <div class="form">
+    <form method="POST">
+      <p><b>Transfer money</b></p>
+      <label>Amount</label>
+      <input type="number" placeholder="$0.00" min="0.01" step="0.01" />
+      <button>Transfer</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -3,11 +3,9 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="root">
-  <!-- <h1>{{ stock.name }}</h1>
-  <h1 id="symbol">{{ stock.symbol }}</h1> -->
-  <h1>{{ stock }}</h1>
-  <h1 id="symbol">{{ stock }}</h1>
-  <h2 id="price">{{ price }}</h2>
+  <h1>{{ stock.name }}</h1>
+  <h1 id="symbol">{{ stock.symbol }}</h1>
+  <h2 id="price">${{ price }}</h2>
 
   <p><b>Stock info</b></p>
   <p>Day High: <span id="dayHigh">N/A</span></p>
@@ -19,6 +17,7 @@
 
   <div class="select">
     <label for="period"><b>Period</b></label>
+    <br />
     <select name="period" id="period">
       <option selected value="1d">1 day</option>
       <option value="5d">5 days</option>
@@ -32,8 +31,9 @@
       <option value="ytd">Year to date</option>
       <option value="max">Max</option>
     </select>
-
+    <br />
     <label for="interval"><b>Interval</b></label>
+    <br />
     <select name="interval" id="interval">
       <option selected value="1m">1 minute</option>
       <option value="2m">2 minutes</option>
@@ -48,11 +48,20 @@
       <option value="1m">1 month</option>
       <option value="3m">3 months</option>
     </select>
-
+    <br />
     <button type="button" id="fetch">Fetch stock</button>
   </div>
   <div class="disclaimer">
     <i>Note: not all intervals are valid for all periods</i>
+  </div>
+
+  <div class="form">
+    <form>
+      <p><b>Buy {{stock.symbol}}</b></p>
+      <label>Shares</label>
+      <input type="number" placeholder="0" min="0" />
+      <button>Buy</button>
+    </form>
   </div>
 </div>
 
@@ -62,5 +71,5 @@
   crossorigin="anonymous"
 ></script> -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="../static/scripts/site.js"></script>
+<script src="../static/scripts/stock.js"></script>
 {% endblock %}

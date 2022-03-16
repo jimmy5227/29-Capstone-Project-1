@@ -58,7 +58,7 @@ def login():
                 return redirect('/')
             else:
                 flash('Incorerct username or password')
-        return render_template('login.html', form=form)
+        return render_template('/users/login.html', form=form)
 
 @app.route('/logout') # Best practice to have this be a POST
 def logout():
@@ -90,11 +90,18 @@ def register():
         return redirect('/')
     return render_template('users/register.html', form=form)
 
+@app.route('/cash', methods=['GET', 'POST'])
+def cash_page():
+    if g.user:
+        cash = g.user.cash
+        return render_template('users/cash.html', cash=cash)
+    else:
+        redirect('/')
+
 @app.route('/stock/<symbol>')
 def stock_symbol(symbol):
     if g.user:
-        # stock = Stock.query.get_or_404(symbol)
-        stock = symbol
+        stock = Stock.query.get_or_404(symbol)
 
         res = yf.Ticker(symbol)
         todays_data = res.history(period='1d')
